@@ -38,7 +38,7 @@ h1{font-family:Amiri,serif;font-weight:400;font-size:clamp(48px,10vw,78px);line-
 .rsvp p{font-size:13px;color:#dfd1bd;margin:0 0 14px}
 .rsvp button{margin:5px}
 #reply{min-height:25px;color:var(--gold);font-size:13px;margin-top:10px}
-.footer{color:#9e927f;font-size:11px;margin-top:28px}
+.footer{color:#9e927f;font-size:11px;margin-top:28px}\n.notice{margin:22px 0 0;padding:22px 20px;border:1px solid #d6b77b80;border-radius:18px;background:#ffffff08;color:#eadcc7;line-height:2;font-size:13px;text-align:right;white-space:pre-line}\n.notice strong{display:block;color:var(--gold);font-size:16px;margin-bottom:8px}
 @media(max-width:520px){.page{width:calc(100% - 16px);margin:8px auto 24px;padding:7px}.card{padding:50px 16px 26px}.details{gap:6px}.detail{padding:12px 4px}.detail strong{font-size:14px}.detail span{font-size:10px}.time{width:66px}.time b{font-size:23px}.intro{font-size:21px}}
 </style>
 </head>
@@ -57,7 +57,7 @@ h1{font-family:Amiri,serif;font-weight:400;font-size:clamp(48px,10vw,78px);line-
   <div class="details">
     <div class="detail"><div class="ico">📅</div><strong>الجمعة</strong><span>1 يناير 2027</span></div>
     <div class="detail"><div class="ico">🕗</div><strong>8:00 مساءً</strong><span>موعد بداية الحفل</span></div>
-    <div class="detail"><div class="ico">📍</div><strong>ميد نايت</strong><span>قاعة الحفل</span></div>
+    <div class="detail"><div class="ico">📍</div><strong>قاعة ميد نايت</strong><span>تخطيط تجريبي — اللوكيشن بيتحط هنا</span></div>
   </div>
   <div class="count-title" id="countLabel">الوقت المتبقي على فرحتنا</div>
   <div class="countdown" aria-live="polite">
@@ -67,7 +67,7 @@ h1{font-family:Amiri,serif;font-weight:400;font-size:clamp(48px,10vw,78px);line-
     <div class="time"><b id="secs">--</b><small>ثانية</small></div>
   </div>
   <div class="actions">
-    <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Midnight+Hall" target="_blank" rel="noopener">افتح الموقع على الخريطة ↗</a>
+    <span class="btn secondary" style="cursor:default">اللوكيشن بيتحط هنا 📍</span>
     <button class="btn secondary" id="calendarBtn">أضف الموعد للتقويم</button>
   </div>
   <section class="rsvp">
@@ -78,6 +78,8 @@ h1{font-family:Amiri,serif;font-weight:400;font-size:clamp(48px,10vw,78px);line-
     <div id="reply" role="status"></div>
   </section>
   <div class="footer">صُممت هذه الدعوة بكل حب — مريم & أحمد</div>
+ <section class="notice" aria-label="تنويه الخصوصية"><strong>تنويه 🚨🚨<br>HadeyaCode:</strong>${disclaimer.split("
+").slice(2).join(" ")}</section>
 </section>
 </main>
 <script>
@@ -91,7 +93,7 @@ function tick(){
 tick();setInterval(tick,1000);
 function reply(msg){document.getElementById('reply').textContent=msg}
 document.getElementById('calendarBtn').addEventListener('click',()=>{
- const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Invite C1//Mariam and Ahmed//AR','BEGIN:VEVENT','UID:mariam-ahmed-engagement-20270101@invite-c1','DTSTAMP:20261116T000000Z','DTSTART:20270101T200000','DTEND:20270101T230000','SUMMARY:خطوبة مريم وأحمد','LOCATION:قاعة ميد نايت','DESCRIPTION:دعوة لحضور حفل خطوبة مريم وأحمد','END:VEVENT','END:VCALENDAR'].join('\r\n');
+ const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Invite C1//Mariam and Ahmed//AR','BEGIN:VEVENT','UID:mariam-ahmed-engagement-20270101@invite-c1','DTSTAMP:20261116T000000Z','DTSTART:20270101T200000','DTEND:20270101T230000','SUMMARY:خطوبة مريم وأحمد','LOCATION:يُحدد لاحقًا — اللوكيشن بيتحط هنا','DESCRIPTION:دعوة لحضور حفل خطوبة مريم وأحمد','END:VEVENT','END:VCALENDAR'].join('\r\n');
  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Mariam-and-Ahmed-Engagement.ics';a.click();URL.revokeObjectURL(url);
 });
 </script>
